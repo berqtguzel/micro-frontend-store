@@ -1,5 +1,9 @@
 import type { NextConfig } from "next";
 
+const cartServiceUrl = (
+  process.env.CART_SERVICE_URL || "http://localhost:3001"
+).replace(/\/+$/, "");
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -17,6 +21,18 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/cart",
+        destination: `${cartServiceUrl}/cart`,
+      },
+      {
+        source: "/cart/:path*",
+        destination: `${cartServiceUrl}/cart/:path*`,
+      },
+    ];
   },
 };
 

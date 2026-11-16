@@ -54,9 +54,17 @@ export default async function HomePage() {
     <main className="min-h-screen bg-slate-50 px-5 py-12 text-slate-950 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <header className="mb-10 border-b border-slate-200 pb-8">
-          <p className="text-sm font-semibold uppercase tracking-widest text-slate-500">
-            Mikro Mağaza
-          </p>
+          <div className="flex items-center justify-between gap-5">
+            <p className="text-sm font-semibold uppercase tracking-widest text-slate-500">
+              Mikro Mağaza
+            </p>
+            <a
+              href="/cart"
+              className="rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
+            >
+              Sepete git
+            </a>
+          </div>
           <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
             Ürünler
           </h1>

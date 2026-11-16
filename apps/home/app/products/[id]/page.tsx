@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { AddToCartButton } from "@/components/add-to-cart-button";
 import { DataSourceError } from "@/components/data-source-error";
 import { formatUsd } from "@/lib/currency";
 import {
@@ -39,12 +40,20 @@ export default async function ProductPage(props: ProductPageProps) {
   return (
     <main className="min-h-screen bg-slate-50 px-5 py-10 text-slate-950 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
-        <Link
-          href="/"
-          className="inline-flex text-sm font-semibold text-slate-600 transition hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
-        >
-          ← Ürünlere dön
-        </Link>
+        <nav className="flex items-center justify-between gap-5">
+          <Link
+            href="/"
+            className="inline-flex text-sm font-semibold text-slate-600 transition hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
+          >
+            ← Ürünlere dön
+          </Link>
+          <a
+            href="/cart"
+            className="rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
+          >
+            Sepete git
+          </a>
+        </nav>
 
         <article className="mt-8 grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm md:grid-cols-2">
           <div className="relative min-h-80 bg-white p-10 sm:min-h-112">
@@ -71,6 +80,15 @@ export default async function ProductPage(props: ProductPageProps) {
             <p className="mt-10 text-3xl font-bold text-slate-950">
               {formatUsd(product.price)}
             </p>
+            <div className="mt-8">
+              <AddToCartButton
+                product={{
+                  id: product.id,
+                  title: product.title,
+                  unitPrice: product.price,
+                }}
+              />
+            </div>
           </div>
         </article>
       </div>
