@@ -5,6 +5,7 @@ const cartServiceUrl = (
 ).replace(/\/+$/, "");
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   images: {
     remotePatterns: [
       {

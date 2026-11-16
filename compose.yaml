@@ -1,0 +1,25 @@
+services:
+  cart:
+    build:
+      context: ./apps/cart
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3001/cart').then((response) => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
+  home:
+    build:
+      context: ./apps/home
+      dockerfile: Dockerfile
+      args:
+        CART_SERVICE_URL: http://cart:3001
+    depends_on:
+      cart:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
