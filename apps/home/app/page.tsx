@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CartLink } from "@/components/cart-link";
 import { DataSourceError } from "@/components/data-source-error";
 import { formatUsd } from "@/lib/currency";
 import {
@@ -58,12 +59,9 @@ export default async function HomePage() {
             <p className="text-sm font-semibold uppercase tracking-widest text-slate-500">
               Mikro Mağaza
             </p>
-            <a
-              href="/cart"
+            <CartLink
               className="rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
-            >
-              Sepete git
-            </a>
+            />
           </div>
           <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
             Ürünler
