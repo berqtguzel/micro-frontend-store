@@ -1,5 +1,7 @@
 # Micro-Frontend Mağaza
 
+[Canlı demo](https://micro-frontend-store-home.berqtguzel.workers.dev)
+
 Next.js Multi-Zone yapısıyla hazırlanmış, birbirinden bağımsız home ve cart uygulamalarından oluşan örnek mağaza projesidir. Home uygulaması ürün kataloğunu ve ürün detaylarını, cart uygulaması ise tarayıcıda saklanan sepeti sunar.
 
 ## Ön koşullar
